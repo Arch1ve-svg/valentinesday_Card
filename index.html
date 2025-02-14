@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, Mia ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #ffd1dc;
+            color: white;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 60px;
+            margin-top: 50px;
+        }
+        .image-slot {
+            width: 150px;
+            height: 150px;
+            border-radius: 15px;
+            margin: 20px auto;
+            display: block;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: float 2s infinite ease-in-out;
+        }
+        .image-slot.active {
+            animation: bounce 0.5s ease;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        .big-photo {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 20px;
+            margin: 30px auto;
+            display: block;
+        }
+        .us-text {
+            font-family: 'Sacramento', cursive;
+            font-size: 50px;
+            margin-top: 10px;
+        }
+        .message {
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .footer {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 18px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src="pompompurin.png" alt="Click to Play" class="image-slot" onclick="playPompompurin()">
+    <h1>Happy Valentine's Day, Mia ❤️</h1>
+    <p class="message">Every moment with you is a gift, and I’m so grateful to have you in my life. Your attention, your cute face, and the way you are make my world brighter every day. I hope today is as special as you are to me. 💕</p>
+    <img src="us.png" alt="Her Beautiful Smile" class="big-photo">
+    <p class="us-text">Us?</p>
+
+    <div class="footer">Forever & Always ❤️</div>
+
+    <audio id="pompompurinMusic">
+        <source src="wave to earth - 사랑으로 (love.).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function playPompompurin() {
+            let audio = document.getElementById("pompompurinMusic");
+            let image = document.querySelector(".image-slot");
+            
+            if (audio.paused) {
+                audio.play();
+                image.classList.add("active");
+                setTimeout(() => image.classList.remove("active"), 500);
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        }
+    </script>
+</body>
+</html>
